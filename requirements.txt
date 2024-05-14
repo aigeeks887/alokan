@@ -1,0 +1,12 @@
+
+speechbrain 
+transformers
+google-generativeai
+virtualenv
+numpy
+pandas 
+scikit-learn 
+matplotlib
+sacrebleu
+datasets
+git+https://github.com/edaiofficial/mmtafrica.git
