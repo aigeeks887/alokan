@@ -72,7 +72,10 @@ def main():
     time.sleep(2.0)
     st.title("Votre Commande: Allumer la lampe torche")
     time.sleep(2.0)
-    js_code = """
+
+    # Boutons pour allumer et éteindre la lampe torche
+    st.button("Allumer la lampe torche")
+    st.write("""
         <script>
         function turnOnTorch() {
             navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
@@ -93,12 +96,7 @@ def main():
         }
 
         turnOnTorch()
-        </script>
-        """
-
-    # Boutons pour allumer et éteindre la lampe torche
-    st.button("Allumer la lampe torche")
-    st.write(js_code)
+        </script>""")
     # st.button("Éteindre la lampe torche", on_click="turnOffTorch()")
     
     # Paramètres
