@@ -72,6 +72,16 @@ def main():
     time.sleep(2.0)
     st.title("Votre Commande: Allumer la lampe torche")
     time.sleep(2.0)
+    st.write("""
+    <script>
+    function myFunction() {
+    alert("Hello! I am an alert box!");
+    }
+    </script>
+
+    <button onclick="myFunction()">Cliquez pour afficher une alerte</button>
+    """, unsafe_allow_html=True)
+    
     # Paramètres
     webrtc_ctx = webrtc_streamer(
         key="torch",
