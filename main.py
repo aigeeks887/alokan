@@ -120,6 +120,7 @@ trained on American English is being served.
 
 
 def app_sst():
+    st.write("Loading...")
     webrtc_ctx = webrtc_streamer(
         key="speech-to-text",
         mode=WebRtcMode.SENDONLY,
