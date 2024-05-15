@@ -71,13 +71,17 @@ def main():
 
     # Boutons pour allumer et éteindre la lampe torche
     st.title("Parlez....")
-    st.markdown("""<button onclick="
-navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
-.then(stream => {
-    const track = stream.getVideoTracks()[0];
-    track.applyConstraints({ advanced: [{ torch: true }] });
-})
-.catch(err => console.error('Erreur lors de l\\'activation de la lampe torche : ', err));">Allumer la lampe torche</button>""", unsafe_allow_html=True)
+    st.markdown("""<script>
+function turnOnTorch() {
+    navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
+    .then(stream => {
+        const track = stream.getVideoTracks()[0];
+        track.applyConstraints({ advanced: [{ torch: true }] });
+    })
+    .catch(err => console.error('Erreur lors de l\'activation de la lampe torche : ', err));
+}
+turnOnTorch();
+</script>""", unsafe_allow_html=True)
     time.sleep(2.0)
     # Paramètres
     # webrtc_ctx = webrtc_streamer(
