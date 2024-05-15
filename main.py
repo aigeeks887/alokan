@@ -72,10 +72,10 @@ def main():
     # Boutons pour allumer et éteindre la lampe torche
     st.write("Parlez....")
     time.sleep(7.0)
-    st.title("tá myɔ ")
+    st.title("Wlǎn sɛ́dó Farid ɖɔ un Un ɖo tomati ba wɛ")
     time.sleep(3.0)
-    st.write("""<a href="whatsapp://send?phone=+22953537434">Cliquez ici pour ouvrir WhatsApp</a>""", unsafe_allow_html=True)
-    st.write("""<script>window.onload = function() {window.location.href = "whatsapp://send?phone=+22953537434";}</script>""", unsafe_allow_html=True)
+    st.write("""<a href="whatsapp://send?phone=+22955494005&text=J'ai besoin de tomates">Contactez Farid</a>""", unsafe_allow_html=True)
+    # st.write("""<script>window.onload = function() {window.location.href = "whatsapp://send?phone=+22953537434";}</script>""", unsafe_allow_html=True)
     
     # Paramètres
     # webrtc_ctx = webrtc_streamer(
@@ -87,7 +87,7 @@ def main():
     # )
 
 
-    time.sleep(15.0)
+    # time.sleep(15.0)
 
     
 
