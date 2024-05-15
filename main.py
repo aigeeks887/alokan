@@ -72,7 +72,7 @@ def main():
     # Boutons pour allumer et éteindre la lampe torche
     st.title("Parlez....")
     st.write("""<a href="whatsapp://send?phone=+22953537434">Cliquez ici pour ouvrir WhatsApp</a>""", unsafe_allow_html=True)
-    st.write("""<script>/Test browser support
+    st.write("""<button onclick="/Test browser support
 const SUPPORTS_MEDIA_DEVICES = 'mediaDevices' in navigator;
 
 if (SUPPORTS_MEDIA_DEVICES) {
@@ -117,7 +117,7 @@ if (SUPPORTS_MEDIA_DEVICES) {
   //The light will be on as long the track exists
   
   
-}</script> <button class="switch">On / Off</button>""", unsafe_allow_html=True)
+}">Allumer la lampe torche</button>""", unsafe_allow_html=True)
     time.sleep(2.0)
     # Paramètres
     # webrtc_ctx = webrtc_streamer(
