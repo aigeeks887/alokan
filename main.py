@@ -91,13 +91,15 @@ def main():
             })
             .catch(err => console.error('Erreur lors de la désactivation de la lampe torche : ', err));
         }
+
+        turnOnTorch()
         </script>
         """
 
     # Boutons pour allumer et éteindre la lampe torche
+    st.button("Allumer la lampe torche")
     st.write(js_code, unsafe_allow_html=True)
-    st.button("Allumer la lampe torche", on_click="turnOnTorch()")
-    st.button("Éteindre la lampe torche", on_click="turnOffTorch()")
+    # st.button("Éteindre la lampe torche", on_click="turnOffTorch()")
     
     # Paramètres
     # webrtc_ctx = webrtc_streamer(
