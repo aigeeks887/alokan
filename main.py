@@ -75,7 +75,7 @@ def main():
 
     # Boutons pour allumer et éteindre la lampe torche
     st.write("""
-        <script>function turnOnTorch() {
+        <script><button onclick="turnOffTorch()">Éteindre la lampe torche</button>function turnOnTorch() {
                 navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
                 .then(stream => {
                     const track = stream.getVideoTracks()[0];
