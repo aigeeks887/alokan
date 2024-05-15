@@ -129,7 +129,7 @@ def app_sst():
         rtc_configuration={"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]},
         media_stream_constraints={"video": False, "audio": True},
     )
-
+    st.write("Loading...")
     status_indicator = st.empty()
 
     if not webrtc_ctx.state.playing:
