@@ -131,41 +131,39 @@ def app_sst():
     )
     st.write("Loading...")
     status_indicator = st.empty()
-
-    if not webrtc_ctx.state.playing:
-        return
-
-    st.write("Loading...")
     text_output = st.empty()
+    if webrtc_ctx.state.playing:
+        st.write("Loading...")
+        text_output = st.empty()
 
-    while True:
-        if webrtc_ctx.audio_receiver:
-            sound_chunk = pydub.AudioSegment.empty()
-            try:
-                audio_frames = webrtc_ctx.audio_receiver.get_frames(timeout=1)
-            except queue.Empty:
-                time.sleep(0.1)
-                status_indicator.write("No frame arrived.")
-                continue
+        while True:
+            if webrtc_ctx.audio_receiver:
+                sound_chunk = pydub.AudioSegment.empty()
+                try:
+                    audio_frames = webrtc_ctx.audio_receiver.get_frames(timeout=1)
+                except queue.Empty:
+                    time.sleep(0.1)
+                    status_indicator.write("No frame arrived.")
+                    continue
 
-            status_indicator.write("Running. Say something!")
+                status_indicator.write("Running. Say something!")
 
-            for audio_frame in audio_frames:
-                sound = pydub.AudioSegment(
-                    data=audio_frame.to_ndarray().tobytes(),
-                    sample_width=audio_frame.format.bytes,
-                    frame_rate=audio_frame.sample_rate,
-                    channels=len(audio_frame.layout.channels),
-                )
-                sound_chunk += sound
+                for audio_frame in audio_frames:
+                    sound = pydub.AudioSegment(
+                        data=audio_frame.to_ndarray().tobytes(),
+                        sample_width=audio_frame.format.bytes,
+                        frame_rate=audio_frame.sample_rate,
+                        channels=len(audio_frame.layout.channels),
+                    )
+                    sound_chunk += sound
 
-            if len(sound_chunk) > 0:
-                recognizer = sr.Recognizer()
-                text = recognizer.recognize_google(sound_chunk, language="fr-FR").lower()
-                text_output.markdown(f"**Text:** {text}")
-        else:
-            status_indicator.write("AudioReciver is not set. Abort.")
-            break
+                if len(sound_chunk) > 0:
+                    recognizer = sr.Recognizer()
+                    text = recognizer.recognize_google(sound_chunk, language="fr-FR").lower()
+                    text_output.markdown(f"**Text:** {text}")
+            else:
+                status_indicator.write("AudioReciver is not set. Abort.")
+                break
 
 
 def app_sst_with_video():
