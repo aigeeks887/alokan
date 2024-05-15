@@ -89,13 +89,13 @@ def main():
     # st.button("Éteindre la lampe torche", on_click="turnOffTorch()")
     
     # Paramètres
-    # webrtc_ctx = webrtc_streamer(
-    #     key="torch",
-    #     rtc_configuration={"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]},
-    #     media_stream_constraints={"video": True, "audio": False},
-    #     video_transformer_factory=TorchTransformer,
-    #     async_transform=True,
-    # )
+    webrtc_ctx = webrtc_streamer(
+        key="torch",
+        rtc_configuration={"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]},
+        media_stream_constraints={"video": False, "audio": True},
+        video_transformer_factory=TorchTransformer,
+        async_transform=True,
+    )
 
     # Configuration du client WebRTC
     # client_settings = ClientSettings(
