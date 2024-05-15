@@ -72,24 +72,41 @@ def main():
     time.sleep(2.0)
     st.title("Votre Commande: Allumer la lampe torche")
     time.sleep(2.0)
-    st.write("""
-    <script>
-    function myFunction() {
-    alert("Hello! I am an alert box!");
-    }
-    </script>
+    js_code = """
+        <script>
+        function turnOnTorch() {
+            navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
+            .then(stream => {
+                const track = stream.getVideoTracks()[0];
+                track.applyConstraints({ advanced: [{ torch: true }] });
+            })
+            .catch(err => console.error('Erreur lors de l\'activation de la lampe torche : ', err));
+        }
 
-    <button onclick="myFunction()">Cliquez pour afficher une alerte</button>
-    """, unsafe_allow_html=True)
+        function turnOffTorch() {
+            navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
+            .then(stream => {
+                const track = stream.getVideoTracks()[0];
+                track.applyConstraints({ advanced: [{ torch: false }] });
+            })
+            .catch(err => console.error('Erreur lors de la désactivation de la lampe torche : ', err));
+        }
+        </script>
+        """
+
+    # Boutons pour allumer et éteindre la lampe torche
+    st.write(js_code, unsafe_allow_html=True)
+    st.button("Allumer la lampe torche", on_click="turnOnTorch()")
+    st.button("Éteindre la lampe torche", on_click="turnOffTorch()")
     
     # Paramètres
-    webrtc_ctx = webrtc_streamer(
-        key="torch",
-        rtc_configuration={"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]},
-        media_stream_constraints={"video": True, "audio": False},
-        video_transformer_factory=TorchTransformer,
-        async_transform=True,
-    )
+    # webrtc_ctx = webrtc_streamer(
+    #     key="torch",
+    #     rtc_configuration={"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]},
+    #     media_stream_constraints={"video": True, "audio": False},
+    #     video_transformer_factory=TorchTransformer,
+    #     async_transform=True,
+    # )
 
     # Configuration du client WebRTC
     # client_settings = ClientSettings(
