@@ -8,7 +8,7 @@ import os
 from collections import deque
 from pathlib import Path
 from typing import List
-
+import speech_recognition as sr
 import av
 import numpy as np
 import pydub
@@ -156,18 +156,6 @@ def app_sst(model_path: str, lm_path: str, lm_alpha: float, lm_beta: float, beam
 
     while True:
         if webrtc_ctx.audio_receiver:
-            if stream is None:
-                from deepspeech import Model
-
-                model = Model(model_path)
-                model.enableExternalScorer(lm_path)
-                model.setScorerAlphaBeta(lm_alpha, lm_beta)
-                model.setBeamWidth(beam)
-
-                stream = model.createStream()
-
-                status_indicator.write("Model loaded.")
-
             sound_chunk = pydub.AudioSegment.empty()
             try:
                 audio_frames = webrtc_ctx.audio_receiver.get_frames(timeout=1)
@@ -188,12 +176,8 @@ def app_sst(model_path: str, lm_path: str, lm_alpha: float, lm_beta: float, beam
                 sound_chunk += sound
 
             if len(sound_chunk) > 0:
-                sound_chunk = sound_chunk.set_channels(1).set_frame_rate(
-                    model.sampleRate()
-                )
-                buffer = np.array(sound_chunk.get_array_of_samples())
-                stream.feedAudioContent(buffer)
-                text = stream.intermediateDecode()
+                recognizer = sr.Recognizer()
+                text = recognizer.recognize_google(sound_chunk, language="fr-FR").lower()
                 text_output.markdown(f"**Text:** {text}")
         else:
             status_indicator.write("AudioReciver is not set. Abort.")
@@ -244,17 +228,6 @@ def app_sst_with_video(
 
     while True:
         if webrtc_ctx.state.playing:
-            if stream is None:
-                from deepspeech import Model
-
-                model = Model(model_path)
-                model.enableExternalScorer(lm_path)
-                model.setScorerAlphaBeta(lm_alpha, lm_beta)
-                model.setBeamWidth(beam)
-
-                stream = model.createStream()
-
-                status_indicator.write("Model loaded.")
 
             sound_chunk = pydub.AudioSegment.empty()
 
@@ -281,12 +254,8 @@ def app_sst_with_video(
                 sound_chunk += sound
 
             if len(sound_chunk) > 0:
-                sound_chunk = sound_chunk.set_channels(1).set_frame_rate(
-                    model.sampleRate()
-                )
-                buffer = np.array(sound_chunk.get_array_of_samples())
-                stream.feedAudioContent(buffer)
-                text = stream.intermediateDecode()
+                recognizer = sr.Recognizer()
+                text = recognizer.recognize_google(sound_chunk, language="fr-FR").lower()
                 text_output.markdown(f"**Text:** {text}")
         else:
             status_indicator.write("Stopped.")

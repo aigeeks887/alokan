@@ -3,7 +3,7 @@ colorama
 streamlit
 configparser
 datasets
-deepspeech
+DeepSpeech
 docker-pycreds
 fsspec
 gitdb
