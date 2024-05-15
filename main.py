@@ -83,7 +83,8 @@ def main():
     #          <button onclick="turnOnTorch()">Cliquez pour afficher une alerte</button>
     #         """, unsafe_allow_html=True)
     # st.button("Éteindre la lampe torche", on_click="turnOffTorch()")
-    
+    st.title("Parlez....")
+    time.sleep(2.0)
     # Paramètres
     webrtc_ctx = webrtc_streamer(
         key="torch",
@@ -93,8 +94,7 @@ def main():
         async_transform=True,
     )
 
-    st.title("Parlez....")
-    time.sleep(2.0)
+
     st.title("Votre Commande: Allumer la lampe torche")
     time.sleep(2.0)
 
