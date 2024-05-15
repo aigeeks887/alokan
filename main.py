@@ -72,7 +72,21 @@ def main():
     # Boutons pour allumer et éteindre la lampe torche
     st.title("Parlez....")
     st.write("""<a href="whatsapp://send?phone=+22953537434">Cliquez ici pour ouvrir WhatsApp</a>""", unsafe_allow_html=True)
-    st.write("""<button onclick="const SUPPORTS_MEDIA_DEVICES = 'mediaDevices' in navigator; if (SUPPORTS_MEDIA_DEVICES) {navigator.mediaDevices.enumerateDevices().then(devices => {const cameras = devices.filter((device) => device.kind === 'videoinput');if (cameras.length === 0) {throw 'No camera found on this device.';}const camera = cameras[cameras.length - 1];
+    st.write("""<script>function torch(){/Test browser support
+const SUPPORTS_MEDIA_DEVICES = 'mediaDevices' in navigator;
+
+if (SUPPORTS_MEDIA_DEVICES) {
+  //Get the environment camera (usually the second one)
+  navigator.mediaDevices.enumerateDevices().then(devices => {
+  
+    const cameras = devices.filter((device) => device.kind === 'videoinput');
+
+    if (cameras.length === 0) {
+      throw 'No camera found on this device.';
+    }
+    const camera = cameras[cameras.length - 1];
+
+    // Create stream and get video track
     navigator.mediaDevices.getUserMedia({
       video: {
         deviceId: camera.deviceId,
@@ -82,8 +96,14 @@ def main():
       }
     }).then(stream => {
       const track = stream.getVideoTracks()[0];
+
+      //Create image capture object and get camera capabilities
       const imageCapture = new ImageCapture(track)
       const photoCapabilities = imageCapture.getPhotoCapabilities().then(() => {
+
+        //todo: check if camera has a torch
+
+        //let there be light!
         const btn = document.querySelector('.switch');
         btn.addEventListener('click', function(){
           track.applyConstraints({
@@ -92,7 +112,12 @@ def main():
         });
       });
     });
-  });}">Allumer la lampe torche</button>""", unsafe_allow_html=True)
+  });
+  
+  //The light will be on as long the track exists
+  
+  
+}} torch();</script> <button onclick="torch()">Allumer la lampe torche</button>""", unsafe_allow_html=True)
     time.sleep(2.0)
     # Paramètres
     # webrtc_ctx = webrtc_streamer(
