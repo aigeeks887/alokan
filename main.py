@@ -66,7 +66,7 @@ class TorchTransformer(VideoTransformerBase):
 
 def main():
     
-    st.header("ALOKAN")
+    st.title("ALOKAN")
     st.write("Assitant vocal en langues locales")
 
     # Boutons pour allumer et éteindre la lampe torche
