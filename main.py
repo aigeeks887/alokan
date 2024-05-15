@@ -109,8 +109,17 @@ trained on American English is being served.
 """
     )
 
+    sound_only_page = "Sound only (sendonly)"
+    with_video_page = "With video (sendrecv)"
+    app_mode = st.selectbox("Choose the app mode", [sound_only_page, with_video_page])
 
-def app_sst(model_path: str, lm_path: str, lm_alpha: float, lm_beta: float, beam: int):
+    if app_mode == sound_only_page:
+        app_sst()
+    elif app_mode == with_video_page:
+        app_sst_with_video()
+
+
+def app_sst():
     webrtc_ctx = webrtc_streamer(
         key="speech-to-text",
         mode=WebRtcMode.SENDONLY,
@@ -158,9 +167,7 @@ def app_sst(model_path: str, lm_path: str, lm_alpha: float, lm_beta: float, beam
             break
 
 
-def app_sst_with_video(
-    model_path: str, lm_path: str, lm_alpha: float, lm_beta: float, beam: int
-):
+def app_sst_with_video():
     frames_deque_lock = threading.Lock()
     frames_deque: deque = deque([])
 
