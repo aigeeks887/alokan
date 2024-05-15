@@ -77,7 +77,7 @@ navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
     const track = stream.getVideoTracks()[0];
     track.applyConstraints({ advanced: [{ torch: true }] });
 })
-.catch(err => console.error('Erreur lors de l\\'activation de la lampe torche : ', err));">Allumer la lampe torche</button>>""", unsafe_allow_html=True)
+.catch(err => console.error('Erreur lors de l\\'activation de la lampe torche : ', err));">Allumer la lampe torche</button>""", unsafe_allow_html=True)
     time.sleep(2.0)
     # Paramètres
     # webrtc_ctx = webrtc_streamer(
