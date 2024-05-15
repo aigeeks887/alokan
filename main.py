@@ -77,11 +77,11 @@ def main():
     st.write("""
         <script>
 function myFunction() {
-  alert("Hello! I am an alert box!");
+  
 }
 </script>
 
-<button onclick="myFunction()">Cliquez pour afficher une alerte</button> """, unsafe_allow_html=True)
+<button onclick="alert("Hello! I am an alert box!");">Cliquez pour afficher une alerte</button> """, unsafe_allow_html=True)
     # st.button("Éteindre la lampe torche", on_click="turnOffTorch()")
     
     # Paramètres
