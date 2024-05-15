@@ -44,7 +44,7 @@ typing-extensions
 requests
 six
 streamlit_webrtc
-speech_recognition
+SpeechRecognition
 python-dateutil
 ipywidgets
 huggingface_hub
