@@ -3,6 +3,7 @@ colorama
 streamlit
 configparser
 datasets
+deepspeech
 docker-pycreds
 fsspec
 gitdb
@@ -35,6 +36,8 @@ smmap
 speechbrain 
 subprocess32
 tabulate
+pydub
+twilio
 threadpoolctl
 tokenizers
 PyAudio
