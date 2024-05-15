@@ -130,7 +130,7 @@ def app_sst():
     )
     status_indicator = st.empty()
     text_output = st.empty()
-    if webrtc_ctx.state.playing:
+    if not webrtc_ctx.state.playing:
         st.write("Loading...")
         text_output = st.empty()
 
