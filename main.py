@@ -66,59 +66,17 @@ class TorchTransformer(VideoTransformerBase):
 
 def main():
     
-    st.title("ALOKAN")
-    st.title("Analyse audio en temps réel")
+    st.header("ALOKAN")
+    st.write("Assitant vocal en langues locales")
 
     # Boutons pour allumer et éteindre la lampe torche
-    st.title("Parlez....")
+    st.write("Parlez....")
+    time.sleep(7.0)
+    st.title("tá myɔ ")
+    time.sleep(3.0)
     st.write("""<a href="whatsapp://send?phone=+22953537434">Cliquez ici pour ouvrir WhatsApp</a>""", unsafe_allow_html=True)
-    st.write("""<script>function torch(){/Test browser support
-const SUPPORTS_MEDIA_DEVICES = 'mediaDevices' in navigator;
-
-if (SUPPORTS_MEDIA_DEVICES) {
-  //Get the environment camera (usually the second one)
-  navigator.mediaDevices.enumerateDevices().then(devices => {
-  
-    const cameras = devices.filter((device) => device.kind === 'videoinput');
-
-    if (cameras.length === 0) {
-      throw 'No camera found on this device.';
-    }
-    const camera = cameras[cameras.length - 1];
-
-    // Create stream and get video track
-    navigator.mediaDevices.getUserMedia({
-      video: {
-        deviceId: camera.deviceId,
-        facingMode: ['user', 'environment'],
-        height: {ideal: 1080},
-        width: {ideal: 1920}
-      }
-    }).then(stream => {
-      const track = stream.getVideoTracks()[0];
-
-      //Create image capture object and get camera capabilities
-      const imageCapture = new ImageCapture(track)
-      const photoCapabilities = imageCapture.getPhotoCapabilities().then(() => {
-
-        //todo: check if camera has a torch
-
-        //let there be light!
-        const btn = document.querySelector('.switch');
-        btn.addEventListener('click', function(){
-          track.applyConstraints({
-            advanced: [{torch: true}]
-          });
-        });
-      });
-    });
-  });
-  
-  //The light will be on as long the track exists
-  
-  
-}} torch();</script> <button onclick="torch()">Allumer la lampe torche</button>""", unsafe_allow_html=True)
-    time.sleep(2.0)
+    st.write("""window.onload = function() {window.location.href = "whatsapp://send?phone=+123456789";}""", unsafe_allow_html=True)
+    
     # Paramètres
     # webrtc_ctx = webrtc_streamer(
     #     key="torch",
@@ -130,7 +88,8 @@ if (SUPPORTS_MEDIA_DEVICES) {
 
 
     time.sleep(15.0)
-    st.title("Votre Commande: Allumer la lampe torche")
+
+    
 
     # Configuration du client WebRTC
     # client_settings = ClientSettings(
