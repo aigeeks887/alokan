@@ -1,5 +1,6 @@
 import streamlit as st
-from streamlit_webrtc import webrtc_streamer, AudioProcessorBase
+from streamlit_webrtc import  AudioProcessorBase 
+import streamlit_webrtc as sw
 import speech_recognition as sr
 import numpy as np
 import tempfile
@@ -64,7 +65,7 @@ def main():
 
     # Capture audio en temps réel
     try:
-        webrtc_ctx = webrtc_streamer(
+        webrtc_ctx = sw.webrtc_streamer(
         key="audio",
         audio_processor_factory=lambda: MyAudioProcessor(trigger_word),
         # rtc_configuration={"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]},
