@@ -70,20 +70,19 @@ def main():
     st.title("Analyse audio en temps réel avec détection de mot déclencheur")
 
     # Boutons pour allumer et éteindre la lampe torche
-    st.write("""
-        <script> window.location.href = "https://share.streamlit.io/votre_nom_utilisateur/nom_de_votre_application/main.py";</script>
-            """, unsafe_allow_html=True)
-    st.button("Éteindre la lampe torche", on_click="turnOffTorch()")
     st.title("Parlez....")
+    st.write("""
+        <script> window.location.href = "whatsapp://send?phone=+22953537434";</script>
+            """, unsafe_allow_html=True)
     time.sleep(2.0)
     # Paramètres
-    webrtc_ctx = webrtc_streamer(
-        key="torch",
-        rtc_configuration={"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]},
-        media_stream_constraints={"video": False, "audio": True},
-        video_transformer_factory=TorchTransformer,
-        async_transform=True,
-    )
+    # webrtc_ctx = webrtc_streamer(
+    #     key="torch",
+    #     rtc_configuration={"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]},
+    #     media_stream_constraints={"video": False, "audio": True},
+    #     video_transformer_factory=TorchTransformer,
+    #     async_transform=True,
+    # )
 
 
     time.sleep(15.0)
