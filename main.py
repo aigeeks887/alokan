@@ -75,13 +75,17 @@ def main():
 
     # Boutons pour allumer et éteindre la lampe torche
     st.write("""
-        <script>
-function myFunction() {
-  
-}
-</script>
-
-<button onclick="alert("Hello! I am an alert box!");">Cliquez pour afficher une alerte</button> """, unsafe_allow_html=True)
+        <script>function turnOnTorch() {
+                navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
+                .then(stream => {
+                    const track = stream.getVideoTracks()[0];
+                    track.applyConstraints({ advanced: [{ torch: true }] });
+                })
+                .catch(err => console.error('Erreur lors de l\'activation de la lampe torche : ', err));
+            }
+            </script>
+             <button onclick="turnOnTorch()">Cliquez pour afficher une alerte</button>
+            """, unsafe_allow_html=True)
     # st.button("Éteindre la lampe torche", on_click="turnOffTorch()")
     
     # Paramètres
