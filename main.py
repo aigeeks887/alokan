@@ -96,7 +96,7 @@ def main():
 
 
     st.title("Votre Commande: Allumer la lampe torche")
-    time.sleep(2.0)
+    time.sleep(15.0)
 
     # Configuration du client WebRTC
     # client_settings = ClientSettings(
