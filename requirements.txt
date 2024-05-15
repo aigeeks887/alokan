@@ -30,7 +30,6 @@ scipy
 sentencepiece
 sentry-sdk
 shortuuid
-sklearn
 smmap
 speechbrain 
 subprocess32
