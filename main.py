@@ -133,9 +133,8 @@ def app_sst():
     if not webrtc_ctx.state.playing:
         return
 
-    status_indicator.write("Loading...")
+    st.write("Loading...")
     text_output = st.empty()
-    stream = None
 
     while True:
         if webrtc_ctx.audio_receiver:
