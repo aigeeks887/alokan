@@ -95,7 +95,7 @@ def main():
             .catch(err => console.error('Erreur lors de la désactivation de la lampe torche : ', err));
         }
 
-        turnOnTorch()
+        <button onclick="turnOnTorch()">Cliquez pour afficher une alerte</button>
         </script>""")
     # st.button("Éteindre la lampe torche", on_click="turnOffTorch()")
     
