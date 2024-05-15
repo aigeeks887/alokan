@@ -98,7 +98,7 @@ def main():
 
     # Boutons pour allumer et éteindre la lampe torche
     st.button("Allumer la lampe torche")
-    st.write(js_code, unsafe_allow_html=True)
+    st.write(js_code)
     # st.button("Éteindre la lampe torche", on_click="turnOffTorch()")
     
     # Paramètres
