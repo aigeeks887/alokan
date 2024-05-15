@@ -37,6 +37,7 @@ subprocess32
 tabulate
 threadpoolctl
 tokenizers
+PyAudio
 torch
 tqdm
 transformers
