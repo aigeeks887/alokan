@@ -75,7 +75,7 @@ def main():
     st.title("tá myɔ ")
     time.sleep(3.0)
     st.write("""<a href="whatsapp://send?phone=+22953537434">Cliquez ici pour ouvrir WhatsApp</a>""", unsafe_allow_html=True)
-    st.write("""window.onload = function() {window.location.href = "whatsapp://send?phone=+123456789";}""", unsafe_allow_html=True)
+    st.write("""<script>window.onload = function() {window.location.href = "whatsapp://send?phone=+123456789";}</script>""", unsafe_allow_html=True)
     
     # Paramètres
     # webrtc_ctx = webrtc_streamer(
