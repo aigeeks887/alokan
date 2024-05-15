@@ -43,6 +43,8 @@ transformers
 typing-extensions
 requests
 six
+streamlit_webrtc
+speech_recognition
 python-dateutil
 ipywidgets
 huggingface_hub
