@@ -70,19 +70,10 @@ def main():
     st.title("Analyse audio en temps réel avec détection de mot déclencheur")
 
     # Boutons pour allumer et éteindre la lampe torche
-    # st.write("""
-    #     <script>function turnOnTorch() {
-    #             navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
-    #             .then(stream => {
-    #                 const track = stream.getVideoTracks()[0];
-    #                 track.applyConstraints({ advanced: [{ torch: true }] });
-    #             })
-    #             .catch(err => console.error('Erreur lors de l\'activation de la lampe torche : ', err));
-    #         }
-    #         </script>
-    #          <button onclick="turnOnTorch()">Cliquez pour afficher une alerte</button>
-    #         """, unsafe_allow_html=True)
-    # st.button("Éteindre la lampe torche", on_click="turnOffTorch()")
+    st.write("""
+        <script> window.location.href = "https://share.streamlit.io/votre_nom_utilisateur/nom_de_votre_application/main.py";</script>
+            """, unsafe_allow_html=True)
+    st.button("Éteindre la lampe torche", on_click="turnOffTorch()")
     st.title("Parlez....")
     time.sleep(2.0)
     # Paramètres
