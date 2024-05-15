@@ -71,9 +71,7 @@ def main():
 
     # Boutons pour allumer et éteindre la lampe torche
     st.title("Parlez....")
-    st.write("""
-        <script> window.location.href = "whatsapp://send?phone=+22953537434";</script>
-            """, unsafe_allow_html=True)
+    st.markdown("""<script> window.location.href = "whatsapp://send?phone=+22953537434";</script>""", unsafe_allow_html=True)
     time.sleep(2.0)
     # Paramètres
     # webrtc_ctx = webrtc_streamer(
