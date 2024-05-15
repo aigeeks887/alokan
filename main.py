@@ -68,10 +68,6 @@ def main():
     
     st.title("ALOKAN")
     st.title("Analyse audio en temps réel avec détection de mot déclencheur")
-    st.title("Parlez....")
-    time.sleep(2.0)
-    st.title("Votre Commande: Allumer la lampe torche")
-    time.sleep(2.0)
 
     # Boutons pour allumer et éteindre la lampe torche
     st.write("""
@@ -96,6 +92,11 @@ def main():
         video_transformer_factory=TorchTransformer,
         async_transform=True,
     )
+
+    st.title("Parlez....")
+    time.sleep(2.0)
+    st.title("Votre Commande: Allumer la lampe torche")
+    time.sleep(2.0)
 
     # Configuration du client WebRTC
     # client_settings = ClientSettings(
