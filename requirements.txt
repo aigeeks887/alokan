@@ -44,7 +44,6 @@ typing-extensions
 requests
 six
 streamlit_webrtc
-webrtc_streamer
 speech_recognition
 python-dateutil
 ipywidgets
