@@ -1,5 +1,6 @@
 click
 colorama
+streamlit
 configparser
 datasets
 docker-pycreds
