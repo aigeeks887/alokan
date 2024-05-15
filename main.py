@@ -97,7 +97,8 @@ def get_ice_servers():
 
 
 def main():
-    st.header("Real Time Speech-to-Text")
+    st.header("ALOKAN")
+    st.header("Assistant Vocal en langues locales")
     st.markdown(
         """
 This demo app is using [DeepSpeech](https://github.com/mozilla/DeepSpeech),
@@ -125,7 +126,7 @@ def app_sst():
         key="speech-to-text",
         mode=WebRtcMode.SENDONLY,
         audio_receiver_size=1024,
-        rtc_configuration={"iceServers": get_ice_servers()},
+        rtc_configuration={"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]},
         media_stream_constraints={"video": False, "audio": True},
     )
 
