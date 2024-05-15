@@ -77,26 +77,27 @@ def main():
     st.button("Allumer la lampe torche")
     st.write("""
         <script>
-        function turnOnTorch() {
-            navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
-            .then(stream => {
-                const track = stream.getVideoTracks()[0];
-                track.applyConstraints({ advanced: [{ torch: true }] });
-            })
-            .catch(err => console.error('Erreur lors de l\'activation de la lampe torche : ', err));
-        }
+            function turnOnTorch() {
+                navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
+                .then(stream => {
+                    const track = stream.getVideoTracks()[0];
+                    track.applyConstraints({ advanced: [{ torch: true }] });
+                })
+                .catch(err => console.error('Erreur lors de l\'activation de la lampe torche : ', err));
+            }
 
-        function turnOffTorch() {
-            navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
-            .then(stream => {
-                const track = stream.getVideoTracks()[0];
-                track.applyConstraints({ advanced: [{ torch: false }] });
-            })
-            .catch(err => console.error('Erreur lors de la désactivation de la lampe torche : ', err));
-        }
+            function turnOffTorch() {
+                navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
+                .then(stream => {
+                    const track = stream.getVideoTracks()[0];
+                    track.applyConstraints({ advanced: [{ torch: false }] });
+                })
+                .catch(err => console.error('Erreur lors de la désactivation de la lampe torche : ', err));
+            }
 
-        <button onclick="turnOnTorch()">Cliquez pour afficher une alerte</button>
-        </script>""")
+            <button onclick="turnOnTorch()">Cliquez pour afficher une alerte</button>
+        </script>
+            """, unsafe_allow_html=True)
     # st.button("Éteindre la lampe torche", on_click="turnOffTorch()")
     
     # Paramètres
